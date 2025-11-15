@@ -24,7 +24,6 @@ function Temario({ className = "" }) {
             <li>Carpeta <code>media</code></li>
             <li>Carpeta <code>scripts</code></li>
             <li>Raíz del proyecto</li>
-            <li>Información</li>
         </Lista>
     );
 }
@@ -211,9 +210,6 @@ export default function General() {
                         <li><code>style-formatter.css</code> - Configuración de colores para VS Code</li>
                     </ul>
 
-                    <h2 className="text-3xl font-semibold">Información</h2>
-                    <p>Actualización: 0.1.2</p>
-                    <p>Autor: Fravelz</p>
                 </div>
             </Estructura>
         </>
