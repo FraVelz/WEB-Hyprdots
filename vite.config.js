@@ -11,7 +11,7 @@ export default defineConfig({
     }),
   ],
 
-  base: process.env.NODE_ENV === 'production' ? '/WEB-Notas-de-Hacking/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/WEB-Hyprdots/' : '/',
 
   server: {
     historyApiFallback: true
