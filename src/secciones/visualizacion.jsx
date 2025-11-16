@@ -81,42 +81,42 @@ export default function Visualizacion() {
         my-5 p-3
         select-none
         ">
-            <Imagen src="./../../public/imagenes/tema-anime.png" width="100%" />
-            <Imagen src="./../../public/imagenes/tema-batman.png" width="100%" />
-            <Imagen src="./../../public/imagenes/tema-hacker.png" width="100%" />
-            <Imagen src="./../../public/imagenes/tema-mode-dark.png" width="100%" />
-            <Imagen src="./../../public/imagenes/tema-new-mode.png" width="100%" />
-            <Imagen src="./../../public/imagenes/tema-superman.png" width="100%" />
-            <Imagen src="./../../public/imagenes/tema-windows.png" width="100%" />
+            <Imagen src="./imagenes/tema-anime.png" width="100%" />
+            <Imagen src="./imagenes/tema-batman.png" width="100%" />
+            <Imagen src="./imagenes/tema-hacker.png" width="100%" />
+            <Imagen src="./imagenes/tema-mode-dark.png" width="100%" />
+            <Imagen src="./imagenes/tema-new-mode.png" width="100%" />
+            <Imagen src="./imagenes/tema-superman.png" width="100%" />
+            <Imagen src="./imagenes/tema-windows.png" width="100%" />
           </div>
 
           <Linea />
 
-          <Mostrar_Temas src="./../../public/imagenes/tema-anime.png"
+          <Mostrar_Temas src="./imagenes/tema-anime.png"
             title="Tema Anime" id="tema-anime"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/tema-batman.png"
+          <Mostrar_Temas src="./imagenes/tema-batman.png"
             title="Tema Batman" id="tema-batman"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/tema-hacker.png"
+          <Mostrar_Temas src="./imagenes/tema-hacker.png"
             title="Tema Hacker" id="tema-hacker"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/tema-mode-dark.png"
+          <Mostrar_Temas src="./imagenes/tema-mode-dark.png"
             title="Tema Mode Dark" id="tema-mode-dark"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/tema-new-mode.png"
+          <Mostrar_Temas src="./imagenes/tema-new-mode.png"
             title="Tema New Mode" id="tema-new-mode"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/tema-superman.png"
+          <Mostrar_Temas src="./imagenes/tema-superman.png"
             title="Tema Superman" id="tema-superman"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/tema-windows.png"
+          <Mostrar_Temas src="./imagenes/tema-windows.png"
             title="Tema Windows" id="tema-windows"
           />
 
@@ -133,22 +133,22 @@ export default function Visualizacion() {
         gap-3
         my-5 p-3
         select-none">
-            <Imagen src="./../../public/imagenes/selector-temas.png" width="100%" className="col-span-2" />
-            <Imagen src="./../../public/imagenes/selector-wallpapers.png" width="100%" />
-            <Imagen src="./../../public/imagenes/selector-apagar.png" width="100%" />
+            <Imagen src="./imagenes/selector-temas.png" width="100%" className="col-span-2" />
+            <Imagen src="./imagenes/selector-wallpapers.png" width="100%" />
+            <Imagen src="./imagenes/selector-apagar.png" width="100%" />
           </div>
 
           <Linea />
 
-          <Mostrar_Temas src="./../../public/imagenes/selector-temas.png"
+          <Mostrar_Temas src="./imagenes/selector-temas.png"
             title="Selector Temas" id="selector-temas"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/selector-wallpapers.png"
+          <Mostrar_Temas src="./imagenes/selector-wallpapers.png"
             title="Selector Wallpapers" id="selector-wallpapers"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/selector-apagar.png"
+          <Mostrar_Temas src="./imagenes/selector-apagar.png"
             title="Selector Apagar" id="selector-apagar"
           />
 
@@ -156,19 +156,19 @@ export default function Visualizacion() {
 
           <Titulo title="h2">Otros</Titulo>
 
-          <Mostrar_Temas src="./../../public/imagenes/terminal.png"
+          <Mostrar_Temas src="./imagenes/terminal.png"
             title="Terminal kitty / zsh / fasfetch" id="terminal"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/terminal.png"
+          <Mostrar_Temas src="./imagenes/terminal.png"
             title="Pantalla de Inicio" id="pantalla-inicio"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/terminal.png"
+          <Mostrar_Temas src="./imagenes/terminal.png"
             title="Pantalla de bloque" id="pantalla-bloqueo"
           />
 
-          <Mostrar_Temas src="./../../public/imagenes/terminal.png"
+          <Mostrar_Temas src="./imagenes/terminal.png"
             title="Notificaciones" id="notificaciones"
           />
         </div>
