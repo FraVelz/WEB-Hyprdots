@@ -10,6 +10,7 @@ import { lazy, Suspense } from "react";
 import Enlace_R from "./componentes/atomos/enlaces_dinamicos.jsx";
 
 const General = lazy(() => import("./secciones/general.jsx"));
+const Atajos = lazy(() => import("./secciones/atajos.jsx"));
 const Visualizacion = lazy(() => import("./secciones/visualizacion.jsx"));
 const Simple = lazy(() => import("./secciones/simple.jsx"));
 
@@ -45,9 +46,10 @@ function App() {
         </div>
 
         <div className="
-        flex gap-4
+        flex gap-4 text-center
         ">
           <Enlace_R to="/">Info. General</Enlace_R>
+          <Enlace_R to="/atajos">Atajos</Enlace_R>
           <Enlace_R to="/visualizacion">Visualizacion</Enlace_R>
           <Enlace_R to="/simple">Version Simple</Enlace_R>
         </div>
@@ -63,6 +65,7 @@ function App() {
         <Suspense fallback={<div className="text-gray-400 p-4">Cargando...</div>}>
           <Routes>
             <Route path="/" element={<General />} />
+            <Route path="/atajos" element={<Atajos />} />
             <Route path='/general' element={<General />} />
             <Route path='/visualizacion' element={<Visualizacion />} />
             <Route path='/simple' element={<Simple />} />
@@ -98,7 +101,7 @@ function App() {
           </div>
         </div>
 
-        <Texto className="text-center mt-5" select="none"><b>Ultima Actualizacion:</b> Nov 15 del 2025</Texto>
+        <Texto className="text-center mt-5" select="none"><b>Ultima Actualizacion:</b> Nov 16 del 2025</Texto>
       </footer>
     </>
   )

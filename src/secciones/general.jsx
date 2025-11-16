@@ -1,12 +1,15 @@
 import Estructura, { TemarioAsideCompleto, TemarioCompleto } from "./../componentes/organismos/estructura";
+
 import Titulo from "../componentes/moleculas/titulo";
+import Texto from "../componentes/atomos/texto";
+import Enlace from "../componentes/atomos/enlace";
 import Lista from "../componentes/moleculas/lista"
 import Linea from "../componentes/atomos/linea"
 
 function Temario({ className = "" }) {
     return (
         <Lista className={className}>
-            <li>Notas</li>
+            <li><Enlace href="#notas">Notas</Enlace></li>
             <li>Organización de archivos y carpetas</li>
             <li>
                 Carpeta <code>config</code>
@@ -36,25 +39,29 @@ export default function General() {
             <Estructura>
                 <div className="p-6 max-w-5xl mx-auto text-gray-200 font-sans space-y-6">
 
-                    <h1 className="text-4xl font-bold">Hyprdots</h1>
+                    <Titulo title="h1">Hyprdots</Titulo>
+                    <Texto>
+                        <b>IMPORTANTE:</b> Hay muchos errores, muchos bugs, configuraciones incompletas,
+                        entre otras cosas si quieres probar las configuraciones puedes crear un nuevo usuario
+                        y probar las configuraciones en tu arch linux - Hyprland!!
+                    </Texto>
 
-                    <p>Repositorio #1 de configuración de Arch Linux.</p>
-                    <p>
+                    <Texto>
+                        <b>Nota:</b> Configuracion de mi pc, informacion generica. Las configuraciones 
+                        estan hechas para usar 1 solo usuario.
+                    </Texto>
+
+                    <Texto>
                         Ver demostración de estilos completos en mi canal de YouTube o revisa
                         directamente la configuración de interés.
-                    </p>
-                    <p>
-                        Atajos de teclado de esta configuración:{" "}
-                        <a href="./atajos.md" className="text-blue-400 underline">
-                            Ir a atajos de teclado
-                        </a>
-                    </p>
-
+                    </Texto>
+                    
                     <TemarioCompleto temario={Temario} />
 
                     <Linea/>
 
-                    <h2 className="text-3xl font-semibold">Notas</h2>
+                    <Titulo title="h2" id="notas">Notas</Titulo>
+
                     <ul className="list-disc list-inside ml-4 space-y-1">
                         <li>Repositorio en construcción.</li>
                         <li>Contenido avanzado: requiere conocimientos en Bash y personalización de temas.</li>
@@ -124,7 +131,7 @@ export default function General() {
                     </ul>
 
                     <h3 className="text-2xl font-semibold">kitty</h3>
-                    <p><code>kitty.conf</code> - Configuración de terminal Kitty</p>
+                    <Texto><code>kitty.conf</code> - Configuración de terminal Kitty</Texto>
 
                     <h3 className="text-2xl font-semibold">nvim</h3>
                     <ul className="list-disc list-inside ml-4 space-y-1">
@@ -137,7 +144,7 @@ export default function General() {
                     </ul>
 
                     <h3 className="text-2xl font-semibold">themes</h3>
-                    <p>Contiene directorios de temas generales, con archivos de configuración y estilos.</p>
+                    <Texto>Contiene directorios de temas generales, con archivos de configuración y estilos.</Texto>
 
                     <h4 className="text-xl font-semibold">Temas disponibles:</h4>
                     <table className="table-auto border-collapse border border-gray-600 w-full text-left">
@@ -185,11 +192,11 @@ export default function General() {
                     </ul>
 
                     <h2 className="text-3xl font-semibold">Carpeta home</h2>
-                    <p>Archivos que se copiarán al directorio personal (~) para personalización y automatización.</p>
-                    <p><code>.zshrc</code> - Configuración inicial de terminal, sintaxis y funcionamiento de kitty.</p>
+                    <Texto>Archivos que se copiarán al directorio personal (~) para personalización y automatización.</Texto>
+                    <Texto><code>.zshrc</code> - Configuración inicial de terminal, sintaxis y funcionamiento de kitty.</Texto>
 
                     <h2 className="text-3xl font-semibold">Carpeta media</h2>
-                    <p>Imágenes utilizadas en documentación y demostraciones.</p>
+                    <Texto>Imágenes utilizadas en documentación y demostraciones.</Texto>
 
                     <h2 className="text-3xl font-semibold">Carpeta scripts</h2>
                     <ul className="list-disc list-inside ml-4 space-y-1">
