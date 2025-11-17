@@ -30,6 +30,7 @@ function Temario({ className = "" }) {
       </Lista>
 
       <li><Enlace href="#terminal">Terminal</Enlace></li>
+      <li><Enlace href="#nvim">Nvim</Enlace></li>
       <li><Enlace href="#pantalla-inicio">Pantalla de Inicio</Enlace></li>
       <li><Enlace href="#pantalla-bloqueo">Pantalla de Bloqueo</Enlace></li>
       <li><Enlace href="#notificaciones">Notificaciones</Enlace></li>
@@ -160,12 +161,16 @@ export default function Visualizacion() {
             title="Terminal kitty / zsh / fasfetch" id="terminal"
           />
 
+          <Mostrar_Temas src="./imagenes/nvim.png"
+            title="Nvim" id="nvim"
+          />
+
           <Mostrar_Temas src="./imagenes/terminal.png"
             title="Pantalla de Inicio" id="pantalla-inicio"
           />
 
           <Mostrar_Temas src="./imagenes/terminal.png"
-            title="Pantalla de bloque" id="pantalla-bloqueo"
+            title="Pantalla de bloqueo" id="pantalla-bloqueo"
           />
 
           <Mostrar_Temas src="./imagenes/terminal.png"

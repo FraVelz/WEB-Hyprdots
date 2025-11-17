@@ -71,15 +71,15 @@ export default function EjemploTabla() {
   ];
 
   return (
-    <Table className="max-w-4xl mx-auto">
-      <TableHeader headers={headers} />
+    <Tabla className="max-w-4xl mx-auto">
+      <TablaCabezera headers={headers} />
       <tbody>
         {data.map((user, i) => (
-          <TableRow key={i}>
-            <TableCell>{user.name}</TableCell>
-            <TableCell>{user.email}</TableCell>
-            <TableCell>{user.role}</TableCell>
-            <TableCell>
+          <TablaFila key={i}>
+            <TablaUnica>{user.name}</TablaUnica>
+            <TablaUnica>{user.email}</TablaUnica>
+            <TablaUnica>{user.role}</TablaUnica>
+            <TablaUnica>
               <span
                 className={`px-2 py-1 rounded-full text-xs ${
                   user.status === "Activo"
@@ -89,10 +89,10 @@ export default function EjemploTabla() {
               >
                 {user.status}
               </span>
-            </TableCell>
-          </TableRow>
+            </TablaUnica>
+          </TablaFila>
         ))}
       </tbody>
-    </Table>
+    </Tabla>
   );
 }
