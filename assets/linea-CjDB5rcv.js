@@ -1,0 +1,1 @@
+import{a as t,j as o}from"./index-AeRF1Won.js";function a(){const r=t.c(1);let e;return r[0]===Symbol.for("react.memo_cache_sentinel")?(e=o.jsx("hr",{className:"border-gray-600 my-6"}),r[0]=e):e=r[0],e}export{a as L};
