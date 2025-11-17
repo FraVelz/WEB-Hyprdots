@@ -49,7 +49,8 @@ function App() {
         </div>
 
         <div className="
-        flex gap-4 text-center
+        text-center hidden
+        sm:flex gap-4
         ">
           <Enlace_R to="/">Info. General</Enlace_R>
           <Enlace_R to="/atajos">Atajos</Enlace_R>
@@ -57,6 +58,17 @@ function App() {
           <Enlace_R to="/simple">Version Simple</Enlace_R>
         </div>
       </header>
+
+      <aside className="
+      sm:hidden
+      flex flex-col gap-2
+      bg-gray-900
+      ">
+          <Enlace_R to="/">Info. General</Enlace_R>
+          <Enlace_R to="/atajos">Atajos</Enlace_R>
+          <Enlace_R to="/visualizacion">Visualizacion</Enlace_R>
+          <Enlace_R to="/simple">Version Simple</Enlace_R>
+      </aside>
 
       <main className="
       flex flex-col lg:flex-row

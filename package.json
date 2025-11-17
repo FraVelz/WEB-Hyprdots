@@ -15,6 +15,7 @@
     "@fortawesome/react-fontawesome": "^3.1.0",
     "@lottiefiles/dotlottie-react": "^0.17.7",
     "@tailwindcss/cli": "^4.1.17",
+    "prismjs": "^1.30.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.6",

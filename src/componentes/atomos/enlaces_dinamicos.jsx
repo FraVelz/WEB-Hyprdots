@@ -15,16 +15,16 @@ function Enlace_R({ children, to, className = "" }) {
       onClick={handleClick}
 
       className={({ isActive }) => `
+        rounded px-3 py-2
         cursor-pointer
         select-none
         transition-all duration-300
-        pb-[2px] border-b-2
         ${
           isActive
-            ? "border-blue-500" // activo
+            ? "bg-gray-700" // activo
             : visited[to]
-            ? "border-gray-500" // visitado
-            : "border-transparent hover:border-gray-400" // normal
+            ? "bg-gray-900" // visitado
+            : "border-transparent hover:bg-gray-900" // normal
         }
         ${className}
       `}

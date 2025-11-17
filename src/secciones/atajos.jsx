@@ -91,7 +91,7 @@ export default function General() {
                     <Titulo title="h2" id="workspaces">Espacios de trabajo</Titulo>
 
                     <Tabla>
-                        <thead><TablaFila><th>Atajo</th><th>Acción</th></TablaFila></thead>
+                        <TablaCabezera headers={["Atajo", "Acción"]} />
 
                         <tbody>
                             <TablaFila><TablaUnica><strong>Super + 1–0</strong></TablaUnica><TablaUnica>Cambiar workspace</TablaUnica></TablaFila>
