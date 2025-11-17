@@ -4,4 +4,4 @@
 
 **Autor:** Fravelz
 
-**Versión:** Actualización 0.0.2
+**Versión:** Actualización 0.0.3
