@@ -1,0 +1,194 @@
+---
+import Estructura from "../organismos/Estructura.astro";
+import TemarioAsideCompleto from "../organismos/TemarioAsideCompleto.astro";
+import TemarioCompleto from "../organismos/TemarioCompleto.astro";
+import Titulo from "../moleculas/Titulo.astro";
+import Imagen from "../atomos/Imagen.astro";
+import Linea from "../atomos/Linea.astro";
+import Enlace from "../atomos/Enlace.astro";
+
+interface Props {
+  base?: string;
+}
+const { base = "" } = Astro.props;
+const img = (path: string) => (base ? base.replace(/\/$/, "") + "/" + path : path);
+---
+
+<div class="flex flex-col xl:flex-row xl:gap-12 gap-8">
+  <TemarioAsideCompleto>
+    <ul class="list-none pl-0 space-y-1.5 text-sm [&_a]:text-slate-500 [&_a:hover]:text-sky-600 dark:[&_a]:text-slate-400 dark:[&_a:hover]:text-sky-400 [&_a]:transition-colors [&_ul]:pl-4 [&_ul]:mt-1.5 [&_ul]:space-y-1">
+      <li><Enlace href="#temas">Temas</Enlace></li>
+      <li>
+        <ul class="list-none pl-4 mt-1.5 space-y-1">
+          <li><Enlace href="#tema-anime">Tema Anime</Enlace></li>
+          <li><Enlace href="#tema-batman">Tema Batman</Enlace></li>
+          <li><Enlace href="#tema-hacker">Tema Hacker</Enlace></li>
+          <li><Enlace href="#tema-mode-dark">Tema Mode Dark</Enlace></li>
+          <li><Enlace href="#tema-new-mode">Tema New Mode</Enlace></li>
+          <li><Enlace href="#tema-superman">Tema Superman</Enlace></li>
+          <li><Enlace href="#tema-windows">Tema Windows</Enlace></li>
+        </ul>
+      </li>
+      <li><Enlace href="#selectores">Selectores</Enlace></li>
+      <li>
+        <ul class="list-none pl-4 mt-1.5 space-y-1">
+          <li><Enlace href="#selector-temas">Selector Temas</Enlace></li>
+          <li><Enlace href="#selector-wallpapers">Selector Wallpapers</Enlace></li>
+          <li><Enlace href="#selector-apagar">Selector Apagar</Enlace></li>
+        </ul>
+      </li>
+      <li><Enlace href="#terminal">Terminal</Enlace></li>
+      <li><Enlace href="#nvim">Nvim</Enlace></li>
+      <li><Enlace href="#pantalla-inicio">Pantalla de Inicio</Enlace></li>
+      <li><Enlace href="#pantalla-bloqueo">Pantalla de Bloqueo</Enlace></li>
+      <li><Enlace href="#notificaciones">Notificaciones</Enlace></li>
+    </ul>
+  </TemarioAsideCompleto>
+
+  <Estructura>
+    <div class="space-y-6">
+      <Titulo title="h1">Visualización</Titulo>
+      <TemarioCompleto>
+        <ul class="list-none pl-0 space-y-1.5 text-sm [&_ul]:pl-4 [&_ul]:mt-1.5 [&_ul]:space-y-1">
+          <li><Enlace href="#temas">Temas</Enlace></li>
+          <li>
+            <ul class="list-none pl-4 mt-1.5 space-y-1">
+              <li><Enlace href="#tema-anime">Tema Anime</Enlace></li>
+              <li><Enlace href="#tema-batman">Tema Batman</Enlace></li>
+              <li><Enlace href="#tema-hacker">Tema Hacker</Enlace></li>
+              <li><Enlace href="#tema-mode-dark">Tema Mode Dark</Enlace></li>
+              <li><Enlace href="#tema-new-mode">Tema New Mode</Enlace></li>
+              <li><Enlace href="#tema-superman">Tema Superman</Enlace></li>
+              <li><Enlace href="#tema-windows">Tema Windows</Enlace></li>
+            </ul>
+          </li>
+          <li><Enlace href="#selectores">Selectores</Enlace></li>
+          <li>
+            <ul class="list-none pl-4 mt-1.5 space-y-1">
+              <li><Enlace href="#selector-temas">Selector Temas</Enlace></li>
+              <li><Enlace href="#selector-wallpapers">Selector Wallpapers</Enlace></li>
+              <li><Enlace href="#selector-apagar">Selector Apagar</Enlace></li>
+            </ul>
+          </li>
+          <li><Enlace href="#terminal">Terminal</Enlace></li>
+          <li><Enlace href="#nvim">Nvim</Enlace></li>
+          <li><Enlace href="#pantalla-inicio">Pantalla de Inicio</Enlace></li>
+          <li><Enlace href="#pantalla-bloqueo">Pantalla de Bloqueo</Enlace></li>
+          <li><Enlace href="#notificaciones">Notificaciones</Enlace></li>
+        </ul>
+      </TemarioCompleto>
+      <Linea />
+      <Titulo title="h2" id="temas">Temas</Titulo>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <Imagen src={img("imagenes/tema-anime.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Tema Anime" />
+        <Imagen src={img("imagenes/tema-batman.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Tema Batman" />
+        <Imagen src={img("imagenes/tema-hacker.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Tema Hacker" />
+        <Imagen src={img("imagenes/tema-mode-dark.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Tema Mode Dark" />
+        <Imagen src={img("imagenes/tema-new-mode.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Tema New Mode" />
+        <Imagen src={img("imagenes/tema-superman.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Tema Superman" />
+        <Imagen src={img("imagenes/tema-windows.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Tema Windows" />
+      </div>
+      <Linea />
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="tema-anime" class="px-6 pt-4 pb-2">Tema Anime</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/tema-anime.png")} width="100%" class="rounded-lg" alt="Tema Anime" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="tema-batman" class="px-6 pt-4 pb-2">Tema Batman</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/tema-batman.png")} width="100%" class="rounded-lg" alt="Tema Batman" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="tema-hacker" class="px-6 pt-4 pb-2">Tema Hacker</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/tema-hacker.png")} width="100%" class="rounded-lg" alt="Tema Hacker" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="tema-mode-dark" class="px-6 pt-4 pb-2">Tema Mode Dark</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/tema-mode-dark.png")} width="100%" class="rounded-lg" alt="Tema Mode Dark" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="tema-new-mode" class="px-6 pt-4 pb-2">Tema New Mode</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/tema-new-mode.png")} width="100%" class="rounded-lg" alt="Tema New Mode" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="tema-superman" class="px-6 pt-4 pb-2">Tema Superman</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/tema-superman.png")} width="100%" class="rounded-lg" alt="Tema Superman" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="tema-windows" class="px-6 pt-4 pb-2">Tema Windows</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/tema-windows.png")} width="100%" class="rounded-lg" alt="Tema Windows" />
+        </div>
+      </section>
+      <Linea />
+      <Titulo title="h2" id="selectores">Selectores</Titulo>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <Imagen src={img("imagenes/selector-temas.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60 col-span-2 sm:col-span-1" alt="Selector Temas" />
+        <Imagen src={img("imagenes/selector-wallpapers.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Selector Wallpapers" />
+        <Imagen src={img("imagenes/selector-apagar.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Selector Apagar" />
+      </div>
+      <Linea />
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="selector-temas" class="px-6 pt-4 pb-2">Selector Temas</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/selector-temas.png")} width="100%" class="rounded-lg" alt="Selector Temas" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="selector-wallpapers" class="px-6 pt-4 pb-2">Selector Wallpapers</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/selector-wallpapers.png")} width="100%" class="rounded-lg" alt="Selector Wallpapers" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="selector-apagar" class="px-6 pt-4 pb-2">Selector Apagar</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/selector-apagar.png")} width="100%" class="rounded-lg" alt="Selector Apagar" />
+        </div>
+      </section>
+      <Linea />
+      <Titulo title="h2">Otros</Titulo>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="terminal" class="px-6 pt-4 pb-2">Terminal kitty / zsh / fasfetch</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/terminal.png")} width="100%" class="rounded-lg" alt="Terminal" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="nvim" class="px-6 pt-4 pb-2">Nvim</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/nvim.png")} width="100%" class="rounded-lg" alt="Nvim" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="pantalla-inicio" class="px-6 pt-4 pb-2">Pantalla de Inicio</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/terminal.png")} width="100%" class="rounded-lg" alt="Pantalla de Inicio" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="pantalla-bloqueo" class="px-6 pt-4 pb-2">Pantalla de bloqueo</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/terminal.png")} width="100%" class="rounded-lg" alt="Pantalla de bloqueo" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="notificaciones" class="px-6 pt-4 pb-2">Notificaciones</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/terminal.png")} width="100%" class="rounded-lg" alt="Notificaciones" />
+        </div>
+      </section>
+    </div>
+  </Estructura>
+</div>

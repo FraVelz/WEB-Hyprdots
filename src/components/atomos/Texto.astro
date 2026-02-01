@@ -1,0 +1,10 @@
+---
+interface Props {
+  class?: string;
+  select?: string;
+}
+const { class: className = "", select = "auto" } = Astro.props;
+---
+<p class:list={["text-slate-600 dark:text-slate-400 text-[15px] leading-relaxed", `select-${select}`, className]}>
+  <slot />
+</p>

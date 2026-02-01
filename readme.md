@@ -1,18 +1,52 @@
-# React + Vite
+# Web Hyprdots
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio de documentación para **Hyprdots**: configuraciones y recursos para Arch Linux + Hyprland. Incluye guía general, atajos de teclado, visualización de temas y la variante **Hyprdots Simple**.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **[Astro](https://astro.build)** — Sitio estático con componentes `.astro`
+- **[React](https://react.dev)** — Solo donde hace falta interactividad (bloques de código con copiar y resaltado)
+- **[Tailwind CSS](https://tailwindcss.com)** v4 — Estilos y modo claro/oscuro
+- **pnpm** — Gestor de paquetes
 
-## React Compiler
+## Estructura
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+(Aproximación).
 
-Note: This will impact Vite dev & build performances.
+``` text
+src/
+├── components/
+│   ├── atomos/      # Enlace, Imagen, Linea, Texto
+│   ├── moleculas/   # Lista, Tabla, Titulo, Codigo (React)
+│   ├── organismos/  # Estructura, TemarioAsideCompleto, TemarioCompleto
+│   └── secciones/   # General, Atajos, Visualizacion, Simple
+├── layouts/
+│   └── BaseLayout.astro
+├── pages/
+│   ├── index.astro           # /
+│   ├── atajos/index.astro    # /atajos/
+│   ├── simple/index.astro    # /simple/
+│   └── visualizacion/index.astro  # /visualizacion/
+└── styles/
+    └── global.css
+```
 
-## Expanding the ESLint configuration
+## Comandos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Comando        | Descripción            |
+| -------------- | ---------------------- |
+| `pnpm install` | Instalar dependencias  |
+| `pnpm dev`     | Servidor de desarrollo |
+| `pnpm build`   | Generar sitio estático |
+| `pnpm preview` | Previsualizar build    |
+| `pnpm lint`    | Ejecutar ESLint        |
+
+## Despliegue
+
+El workflow en `.github/workflows/deploy.yml` compila el proyecto con `pnpm build` y publica el contenido de `dist/` (en GitHub Pages).
+
+## Información
+
+**licencia:** MIT
+
+**Autor:** Fravelz

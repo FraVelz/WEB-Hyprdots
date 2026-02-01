@@ -1,0 +1,170 @@
+---
+import Estructura from "../organismos/Estructura.astro";
+import TemarioAsideCompleto from "../organismos/TemarioAsideCompleto.astro";
+import TemarioCompleto from "../organismos/TemarioCompleto.astro";
+import Tabla from "../moleculas/Tabla.astro";
+import TablaCabezera from "../moleculas/TablaCabezera.astro";
+import TablaFila from "../moleculas/TablaFila.astro";
+import TablaUnica from "../moleculas/TablaUnica.astro";
+import Titulo from "../moleculas/Titulo.astro";
+import Texto from "../atomos/Texto.astro";
+import Enlace from "../atomos/Enlace.astro";
+import Lista from "../moleculas/Lista.astro";
+import Linea from "../atomos/Linea.astro";
+import Imagen from "../atomos/Imagen.astro";
+import Codigo from "../moleculas/codigo.jsx";
+
+interface Props {
+  base?: string;
+}
+const { base = "" } = Astro.props;
+const img = (path: string) => (base ? base.replace(/\/$/, "") + "/" + path : path);
+const baseUrl = base ? base.replace(/\/$/, "") : "";
+
+const codigoInstalacion = `# Ejemplo: copiar solo config simple (ajusta rutas según tu repo)
+cp -r ./config/hypr ~/.config/
+cp -r ./config/waybar ~/.config/
+cp -r ./config/kitty ~/.config/
+cp -r ./config/nvim ~/.config/
+cp ./home/.zshrc ~/
+
+# Permisos para scripts que uses
+chmod +x ~/.config/hyprdots/bin/power-menu.sh
+chmod +x ~/.config/hyprdots/bin/selector-app.sh`;
+---
+
+<div class="flex flex-col xl:flex-row xl:gap-12 gap-8">
+  <TemarioAsideCompleto>
+    <ul class="list-none pl-0 space-y-1.5 text-sm [&_a]:text-slate-500 [&_a:hover]:text-sky-600 dark:[&_a]:text-slate-400 dark:[&_a:hover]:text-sky-400 [&_a]:transition-colors [&_ul]:pl-4 [&_ul]:mt-1.5 [&_ul]:space-y-1">
+      <li><Enlace href="#que-es">Qué es Hyprdots Simple</Enlace></li>
+      <li><Enlace href="#estructura">Estructura de archivos</Enlace></li>
+      <li><Enlace href="#atajos">Atajos</Enlace></li>
+      <li><Enlace href="#visualizacion">Visualización</Enlace></li>
+      <li><Enlace href="#instalacion">Instalación</Enlace></li>
+    </ul>
+  </TemarioAsideCompleto>
+
+  <Estructura>
+    <div class="space-y-6">
+      <div>
+        <Titulo title="h1">Hyprdots Simple</Titulo>
+        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed max-w-2xl mt-2">
+          Variante ligera de Hyprdots: misma base (Hyprland, waybar, kitty) con menos archivos, sin temas múltiples ni scripts extra. Menor consumo de recursos e instalación más rápida.
+        </p>
+      </div>
+
+      <TemarioCompleto>
+        <ul class="list-none pl-0 space-y-1.5 text-sm [&_ul]:pl-4 [&_ul]:mt-1.5 [&_ul]:space-y-1">
+          <li><Enlace href="#que-es">Qué es Hyprdots Simple</Enlace></li>
+          <li><Enlace href="#estructura">Estructura de archivos</Enlace></li>
+          <li><Enlace href="#atajos">Atajos</Enlace></li>
+          <li><Enlace href="#visualizacion">Visualización</Enlace></li>
+          <li><Enlace href="#instalacion">Instalación</Enlace></li>
+        </ul>
+      </TemarioCompleto>
+
+      <Linea />
+
+      <Titulo title="h2" id="que-es">Qué es Hyprdots Simple</Titulo>
+      <Texto>
+        Es la misma configuración de Hyprland que el resto del repo, pero reducida: un solo tema, waybar básico, hypr + kitty + nvim mínimos. No incluye carpetas <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">themes</code> con varios temas, ni scripts como <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">theme-switcher.sh</code> o <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">mode-hacker.sh</code>. Ideal para equipos con pocos recursos o si prefieres mantener solo lo esencial.
+      </Texto>
+      <Texto>
+        Los atajos de teclado son los mismos que en la configuración completa; puedes consultarlos en la sección <Enlace href={`${baseUrl}/atajos/`}>Atajos</Enlace>.
+      </Texto>
+
+      <Titulo title="h2" id="estructura">Estructura de archivos</Titulo>
+      <Texto>
+        En la variante simple solo se usan estas carpetas y archivos (el resto del repo se ignora o no se copia).
+      </Texto>
+
+      <Tabla>
+        <TablaCabezera headers={["Ubicación", "Contenido"]} />
+        <tbody>
+          <TablaFila>
+            <TablaUnica><code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">./config/hypr/</code></TablaUnica>
+            <TablaUnica>hyprland.conf, colors.conf, hyprpaper.conf</TablaUnica>
+          </TablaFila>
+          <TablaFila>
+            <TablaUnica><code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">./config/waybar/</code></TablaUnica>
+            <TablaUnica>config.jsonc, style.css, colors.css (barra mínima)</TablaUnica>
+          </TablaFila>
+          <TablaFila>
+            <TablaUnica><code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">./config/kitty/</code></TablaUnica>
+            <TablaUnica>kitty.conf</TablaUnica>
+          </TablaFila>
+          <TablaFila>
+            <TablaUnica><code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">./config/nvim/</code></TablaUnica>
+            <TablaUnica>init.lua y lua/ (config mínima)</TablaUnica>
+          </TablaFila>
+          <TablaFila>
+            <TablaUnica><code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">./config/bin/</code></TablaUnica>
+            <TablaUnica>Solo scripts esenciales: power-menu.sh, selector-app.sh (opcional)</TablaUnica>
+          </TablaFila>
+          <TablaFila>
+            <TablaUnica><code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">./home/</code></TablaUnica>
+            <TablaUnica>.zshrc (igual que en la variante completa)</TablaUnica>
+          </TablaFila>
+        </tbody>
+      </Tabla>
+
+      <Texto>
+        No se usan: <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">themes/</code>, <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">fastfetch</code> (opcional), <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">mode-hacker.sh</code>, <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">theme-switcher.sh</code>, ni la mayoría de scripts de <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">bin</code>.
+      </Texto>
+
+      <Titulo title="h2" id="atajos">Atajos</Titulo>
+      <Texto>
+        Los atajos son los mismos que en la configuración completa. Resumen de los más usados:
+      </Texto>
+      <Tabla>
+        <TablaCabezera headers={["Atajo", "Acción"]} />
+        <tbody>
+          <TablaFila><TablaUnica><strong>Super + Return</strong></TablaUnica><TablaUnica>Abrir terminal (kitty)</TablaUnica></TablaFila>
+          <TablaFila><TablaUnica><strong>Super + C</strong></TablaUnica><TablaUnica>Cerrar ventana</TablaUnica></TablaFila>
+          <TablaFila><TablaUnica><strong>Super + D</strong></TablaUnica><TablaUnica>Menú aplicaciones (rofi)</TablaUnica></TablaFila>
+          <TablaFila><TablaUnica><strong>Super + Q</strong></TablaUnica><TablaUnica>Menú apagado</TablaUnica></TablaFila>
+          <TablaFila><TablaUnica><strong>Super + 1–0</strong></TablaUnica><TablaUnica>Cambiar workspace</TablaUnica></TablaFila>
+        </tbody>
+      </Tabla>
+      <Texto>
+        Lista completa en <Enlace href={`${baseUrl}/atajos/`}>Atajos de teclado</Enlace>.
+      </Texto>
+
+      <Titulo title="h2" id="visualizacion">Visualización</Titulo>
+      <Texto>
+        Aspecto típico de la variante simple: barra waybar mínima, terminal kitty y nvim básico. Las capturas corresponden a la misma estética que en la configuración completa pero con menos módulos y un solo tema.
+      </Texto>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+        <Imagen src={img("imagenes/terminal.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Terminal Simple" />
+        <Imagen src={img("imagenes/nvim.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Nvim Simple" />
+      </div>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="simple-terminal" class="px-6 pt-4 pb-2">Terminal (kitty / zsh)</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/terminal.png")} width="100%" class="rounded-lg" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="simple-nvim" class="px-6 pt-4 pb-2">Nvim</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/nvim.png")} width="100%" class="rounded-lg" />
+        </div>
+      </section>
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+        <Titulo title="h3" id="simple-apagar" class="px-6 pt-4 pb-2">Menú apagado (rofi)</Titulo>
+        <div class="px-6 pb-6">
+          <Imagen src={img("imagenes/selector-apagar.png")} width="100%" class="rounded-lg" />
+        </div>
+      </section>
+
+      <Titulo title="h2" id="instalacion">Instalación</Titulo>
+      <Texto>
+        Si en el repositorio hay un script o rama específica para la variante simple, úsala según el readme. Si no, copia manualmente solo las carpetas y archivos listados en <Enlace href="#estructura">Estructura de archivos</Enlace> a tu <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">~/.config</code> y <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">~</code>, y ajusta permisos de los scripts en <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">bin</code>.
+      </Texto>
+      <Codigo client:load code={codigoInstalacion} language="bash" />
+      <Texto>
+        Para la configuración completa (varios temas, todos los scripts), sigue la guía de la sección <Enlace href={baseUrl ? baseUrl + "/" : "/"}>General</Enlace> y el readme del repositorio.
+      </Texto>
+    </div>
+  </Estructura>
+</div>

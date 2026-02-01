@@ -1,0 +1,17 @@
+---
+interface Props {
+  type?: "ul" | "ol";
+  class?: string;
+}
+const { type = "ul", class: className = "" } = Astro.props;
+const common = "text-[15px] text-slate-600 dark:text-slate-400 leading-relaxed space-y-1.5 pl-5 ";
+---
+{type === "ol" ? (
+  <ol class:list={["list-decimal list-inside", common, className]}>
+    <slot />
+  </ol>
+) : (
+  <ul class:list={["list-disc list-inside", common, className]}>
+    <slot />
+  </ul>
+)}

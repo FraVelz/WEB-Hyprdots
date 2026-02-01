@@ -1,0 +1,14 @@
+---
+interface Props {
+  hover?: boolean;
+}
+const { hover = true } = Astro.props;
+---
+<tr
+  class:list={[
+    "border-b border-slate-200 dark:border-slate-700/40 text-slate-600 dark:text-slate-400",
+    hover && "hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors",
+  ]}
+>
+  <slot />
+</tr>

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Dark mode con clase .dark en html */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    @apply bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-300;
+    color-scheme: light dark;
+  }
+
+  /* Tablas: base mínima */
+  table {
+    @apply w-full border-collapse;
+  }
+  th,
+  td {
+    @apply py-2.5 px-3 text-left text-slate-600 dark:text-slate-400;
+  }
+  thead th {
+    @apply font-semibold text-[0.95rem] text-slate-800 dark:text-slate-200;
+  }
+  tbody tr + tr td {
+    @apply border-t border-slate-200 dark:border-white/10;
+  }
+}

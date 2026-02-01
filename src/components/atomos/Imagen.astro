@@ -1,0 +1,19 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+  width?: string | number;
+  height?: string | number;
+  class?: string;
+}
+const { src, alt = "", width = 100, height, class: className = "" } = Astro.props;
+const h = height ?? width;
+---
+<img
+  src={src}
+  alt={alt}
+  width={typeof width === "number" ? width : undefined}
+  height={typeof h === "number" ? h : undefined}
+  class={className}
+  draggable="false"
+/>

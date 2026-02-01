@@ -1,0 +1,210 @@
+---
+import "../styles/global.css";
+
+const {
+  title,
+  description = "Pagina web, con hyprdots y toda la informacion de configuraciones del pc, con arch linux y hyprland.",
+} = Astro.props;
+const base = import.meta.env.BASE_URL;
+const pathname = Astro.url.pathname;
+const isHome =
+  pathname === base ||
+  pathname === base.replace(/\/$/, "") ||
+  pathname.endsWith("index.html");
+
+const navItems = [
+  { href: base, label: "General" },
+  { href: `${base}atajos/`, label: "Atajos" },
+  { href: `${base}visualizacion/`, label: "Visualización" },
+  { href: `${base}simple/`, label: "Simple" },
+];
+
+function isActive(href) {
+  if (href === base) return isHome;
+  return pathname.includes(href.replace(base, "").replace(/\/$/, ""));
+}
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href={`${base}icono.svg`} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/FraVelz/WEB-Hyprdots/refs/heads/main/web-hyprdots.png"
+    />
+    <meta property="og:url" content="https://fravelz.github.io/WEB-Hyprdots/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/FraVelz/WEB-Hyprdots/refs/heads/main/web-hyprdots.png"
+    />
+    <meta name="twitter:site" content="@_FraVelz" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col font-sans">
+    <header class="sticky top-0 z-40 border-b border-black/5 bg-slate-50/90 dark:border-white/5 dark:bg-slate-950/90 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[inset_0_1px_0_rgba(0,0,0,0.3)]">
+      <div class="flex items-center justify-between gap-6 max-w-4xl mx-auto px-4 h-16 sm:h-[4.25rem] sm:px-6">
+        <a href={base} class="flex items-center gap-3 no-underline text-inherit transition-opacity hover:opacity-90">
+          <span class="flex items-center justify-center w-10 h-10 rounded-[10px] overflow-hidden border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/5 dark:shadow-none">
+            <img src={`${base}logo-fravelz.jpg`} alt="" class="w-full h-full object-cover" width="40" height="40" />
+          </span>
+          <span class="flex flex-col items-start gap-0.5">
+            <span class="text-[1.05rem] font-semibold tracking-tight text-slate-900 dark:text-slate-100">Hyprdots</span>
+            <span class="text-[0.7rem] font-medium tracking-wide uppercase text-slate-500 dark:text-slate-400">por Fravelz</span>
+          </span>
+        </a>
+
+        <nav class="hidden sm:flex items-center gap-1" aria-label="Principal">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                "py-2 px-3 rounded-lg text-sm font-medium no-underline transition-colors",
+                "text-slate-500 hover:text-slate-900 hover:bg-black/5",
+                "dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-white/5",
+                isActive(item.href) && "!text-sky-500 !bg-sky-500/10 dark:!text-sky-400 dark:!bg-sky-400/10",
+              ]}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <a
+            href="https://github.com/FraVelz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-lg text-sm font-medium no-underline border-none cursor-pointer bg-transparent text-slate-600 hover:text-sky-500 hover:bg-sky-500/10 dark:text-slate-400 dark:hover:text-sky-400 dark:hover:bg-sky-400/10 transition-colors"
+            aria-label="Ver en GitHub"
+          >
+            <i class="fa-brands fa-github text-[1.1rem]" aria-hidden="true"></i>
+            <span class="hidden sm:inline">GitHub</span>
+          </a>
+          <span class="w-px h-5 bg-black/10 dark:bg-white/10" aria-hidden="true"></span>
+          <button
+            type="button"
+            id="theme-toggle"
+            class="inline-flex items-center justify-center w-9 h-9 rounded-lg text-sm font-medium border-none cursor-pointer bg-transparent text-slate-600 hover:text-sky-500 hover:bg-sky-500/10 dark:text-slate-400 dark:hover:text-sky-400 dark:hover:bg-sky-400/10 transition-colors"
+            aria-label="Cambiar tema claro/oscuro"
+          >
+            <span class="relative inline-flex items-center justify-center w-[1.05rem] h-[1.05rem]">
+              <i class="fa-solid fa-moon text-[1.05rem] absolute dark:opacity-0 dark:pointer-events-none" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun text-[1.05rem] absolute opacity-0 pointer-events-none dark:opacity-100 dark:pointer-events-auto" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="sm:hidden border-t border-black/5 dark:border-white/5 overflow-x-auto touch-pan-x" aria-label="Principal móvil">
+        <div class="flex gap-1 min-w-max py-2 px-4 pb-2.5">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                "shrink-0 py-1.5 px-3 rounded-lg text-sm font-medium no-underline transition-colors",
+                "text-slate-500 bg-black/5 hover:text-slate-900 hover:bg-black/10",
+                "dark:text-slate-400 dark:bg-white/5 dark:hover:text-slate-100 dark:hover:bg-white/10",
+                isActive(item.href) && "!text-sky-500 !bg-sky-500/10 dark:!text-sky-400 dark:!bg-sky-400/10",
+              ]}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+      <div class="w-full">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="mt-auto border-t border-black/5 bg-slate-100/60 dark:border-white/5 dark:bg-slate-900/50 py-10 pb-6">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="grid gap-8 pb-8 border-b border-black/5 dark:border-white/5 sm:grid-cols-[1fr_auto_auto] sm:gap-10 sm:items-start">
+          <div class="flex flex-col gap-1.5">
+            <a href={base} class="inline-flex flex-col gap-0.5 no-underline text-inherit transition-opacity hover:opacity-85">
+              <span class="text-[1.1rem] font-semibold tracking-tight text-slate-900 dark:text-slate-100">Hyprdots</span>
+              <span class="text-[0.7rem] font-medium tracking-wider uppercase text-slate-500 dark:text-slate-400">por Fravelz</span>
+            </a>
+            <p class="text-sm text-slate-500 dark:text-slate-400 m-0 leading-snug">Configuraciones para Arch Linux + Hyprland</p>
+          </div>
+
+          <nav class="flex flex-col" aria-label="Enlaces del sitio">
+            <span class="block text-[0.7rem] font-semibold tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2.5">Secciones</span>
+            <ul class="list-none m-0 p-0 flex flex-col gap-1.5">
+              {navItems.map((item) => (
+                <li>
+                  <a href={item.href} class="text-sm font-medium no-underline text-slate-600 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 transition-colors">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div class="flex flex-col gap-2">
+            <span class="block text-[0.7rem] font-semibold tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2.5">Contacto</span>
+            <a href="mailto:fravelz@proton.me" class="text-sm font-medium no-underline text-slate-600 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 transition-colors">
+              fravelz@proton.me
+            </a>
+            <div class="flex items-center gap-2 mt-1">
+              <a href="https://github.com/FraVelz" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-lg text-slate-500 bg-black/5 hover:text-sky-500 hover:bg-sky-500/10 dark:text-slate-400 dark:bg-white/5 dark:hover:text-sky-400 dark:hover:bg-sky-400/10 transition-colors" aria-label="GitHub">
+                <i class="fa-brands fa-github text-[1.1rem]" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.youtube.com/@fravelz" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-lg text-slate-500 bg-black/5 hover:text-sky-500 hover:bg-sky-500/10 dark:text-slate-400 dark:bg-white/5 dark:hover:text-sky-400 dark:hover:bg-sky-400/10 transition-colors" aria-label="YouTube">
+                <i class="fa-brands fa-youtube text-[1.1rem]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-5">
+          <p class="m-0 text-xs text-slate-500 dark:text-slate-400 flex flex-wrap items-center justify-center gap-1.5">
+            <a href="https://fravelz.github.io/WEB-Fravelz/" target="_blank" rel="noopener noreferrer" class="font-medium no-underline text-slate-600 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 transition-colors">Web personal</a>
+            <span class="text-black/20 dark:text-white/20 select-none">·</span>
+            <span>Última actualización: Nov 2025</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+        document.getElementById("theme-toggle").addEventListener("click", function () {
+          var isDark = document.documentElement.classList.toggle("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+      })();
+    </script>
+  </body>
+</html>

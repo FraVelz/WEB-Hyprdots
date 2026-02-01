@@ -1,0 +1,15 @@
+---
+interface Props {
+  headers: string[];
+}
+const { headers } = Astro.props;
+---
+<thead>
+  <tr class="border-b border-slate-200 dark:border-slate-700/60">
+    {headers.map((header) => (
+      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-slate-600 bg-slate-100 dark:text-slate-400 dark:bg-slate-800/60">
+        {header}
+      </th>
+    ))}
+  </tr>
+</thead>

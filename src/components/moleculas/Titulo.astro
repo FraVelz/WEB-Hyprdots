@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: "h1" | "h2" | "h3";
+  id?: string;
+  class?: string;
+}
+const { title, id = "", class: className = "" } = Astro.props;
+const base = "tracking-tight text-slate-800 dark:text-slate-100 ";
+const tag = title;
+const classes = {
+  h1: [base, "text-2xl sm:text-3xl font-semibold mb-6", className],
+  h2: [base, "text-lg sm:text-xl font-semibold mt-8 mb-4 first:mt-0", className],
+  h3: [base, "text-base sm:text-lg font-medium mt-6 mb-3", className],
+};
+---
+{tag === "h1" && (
+  <h1 id={id || undefined} class:list={classes.h1}>
+    <slot />
+  </h1>
+)}
+{tag === "h2" && (
+  <h2 id={id || undefined} class:list={classes.h2}>
+    <slot />
+  </h2>
+)}
+{tag === "h3" && (
+  <h3 id={id || undefined} class:list={classes.h3}>
+    <slot />
+  </h3>
+)}
