@@ -1,0 +1,106 @@
+---
+const {
+    base,
+    navItems,
+} = Astro.props;
+---
+
+<footer
+  class="mt-auto border-t border-black/5 bg-slate-100/60 dark:border-white/5 dark:bg-slate-900/50 py-10 pb-6"
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div
+      class="grid gap-8 pb-8 border-b border-black/5 dark:border-white/5 sm:grid-cols-[1fr_auto_auto] sm:gap-10 sm:items-start"
+    >
+      <div class="flex flex-col gap-1.5">
+        <a
+          href={base}
+          class="inline-flex flex-col gap-0.5 no-underline text-inherit transition-opacity hover:opacity-85"
+        >
+          <span
+            class="text-[1.1rem] font-semibold tracking-tight text-slate-900 dark:text-slate-100"
+            >Hyprdots</span
+          >
+          <span
+            class="text-[0.7rem] font-medium tracking-wider uppercase text-slate-500 dark:text-slate-400"
+            >por Fravelz</span
+          >
+        </a>
+        <p class="text-sm text-slate-500 dark:text-slate-400 m-0 leading-snug">
+          Configuraciones para Arch Linux + Hyprland
+        </p>
+      </div>
+
+      <nav class="flex flex-col" aria-label="Enlaces del sitio">
+        <span
+          class="block text-[0.7rem] font-semibold tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2.5"
+          >Secciones</span
+        >
+        <ul class="list-none m-0 p-0 flex flex-col gap-1.5">
+          {
+            navItems.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-sm font-medium no-underline text-slate-600 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="flex flex-col gap-2">
+        <span
+          class="block text-[0.7rem] font-semibold tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2.5"
+          >Contacto</span
+        >
+        <a
+          href="mailto:fravelz@proton.me"
+          class="text-sm font-medium no-underline text-slate-600 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 transition-colors"
+        >
+          fravelz@proton.me
+        </a>
+        <div class="flex items-center gap-2 mt-1">
+          <a
+            href="https://github.com/FraVelz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center w-9 h-9 rounded-lg text-slate-500 bg-black/5 hover:text-sky-500 hover:bg-sky-500/10 dark:text-slate-400 dark:bg-white/5 dark:hover:text-sky-400 dark:hover:bg-sky-400/10 transition-colors"
+            aria-label="GitHub"
+          >
+            <i class="fa-brands fa-github text-[1.1rem]" aria-hidden="true"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/@fravelz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center w-9 h-9 rounded-lg text-slate-500 bg-black/5 hover:text-sky-500 hover:bg-sky-500/10 dark:text-slate-400 dark:bg-white/5 dark:hover:text-sky-400 dark:hover:bg-sky-400/10 transition-colors"
+            aria-label="YouTube"
+          >
+            <i class="fa-brands fa-youtube text-[1.1rem]" aria-hidden="true"
+            ></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-5">
+      <p
+        class="m-0 text-xs text-slate-500 dark:text-slate-400 flex flex-wrap items-center justify-center gap-1.5"
+      >
+        <a
+          href="https://fravelz.github.io/WEB-Fravelz/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-medium no-underline text-slate-600 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 transition-colors"
+          >Web personal</a
+        >
+        <span class="text-black/20 dark:text-white/20 select-none">·</span>
+        <span>Última actualización: Nov 2025</span>
+      </p>
+    </div>
+  </div>
+</footer>

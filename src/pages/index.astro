@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import General from "../components/secciones/General.astro";
-const base = import.meta.env.BASE_URL;
+const base = (import.meta as { env: { BASE_URL: string } }).env.BASE_URL;
 ---
 
 <BaseLayout title="Hyprdots - Fravelz">

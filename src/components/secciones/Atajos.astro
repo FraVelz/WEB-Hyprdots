@@ -1,5 +1,6 @@
 ---
 import Estructura from "../organismos/Estructura.astro";
+import SectionHero from "../organismos/SectionHero.astro";
 import TemarioAsideCompleto from "../organismos/TemarioAsideCompleto.astro";
 import TemarioCompleto from "../organismos/TemarioCompleto.astro";
 import Tabla from "../moleculas/Tabla.astro";
@@ -8,7 +9,6 @@ import TablaFila from "../moleculas/TablaFila.astro";
 import TablaUnica from "../moleculas/TablaUnica.astro";
 import Titulo from "../moleculas/Titulo.astro";
 import Lista from "../moleculas/Lista.astro";
-import Linea from "../atomos/Linea.astro";
 import Enlace from "../atomos/Enlace.astro";
 ---
 
@@ -28,30 +28,35 @@ import Enlace from "../atomos/Enlace.astro";
   </TemarioAsideCompleto>
 
   <Estructura>
-    <div class="space-y-6">
-      <Titulo title="h1">Atajos de Teclado</Titulo>
-      <Linea />
-      <TemarioCompleto>
-        <ul class="list-none pl-0 space-y-1.5 text-sm [&_ul]:pl-4 [&_ul]:mt-1.5 [&_ul]:space-y-1">
-          <li><Enlace href="#modificadores-principales">Modificadores principales</Enlace></li>
-          <li><Enlace href="#gestion-de-ventanas">Gestión de ventanas</Enlace></li>
-          <li><Enlace href="#menus-personalizados">Menús personalizados</Enlace></li>
-          <li><Enlace href="#movimiento-entre-ventanas">Movimiento entre ventanas</Enlace></li>
-          <li><Enlace href="#workspaces">Espacios de trabajo (Workspaces)</Enlace></li>
-          <li><Enlace href="#gestos-del-raton">Gestos del ratón</Enlace></li>
-          <li><Enlace href="#kitty">Comandos básicos dentro de Kitty</Enlace></li>
-          <li><Enlace href="#atajos-bash">Atajos básicos (Bash y Zsh)</Enlace></li>
-          <li><Enlace href="#comandos-bash-zsh">Bash y Zsh Comandos</Enlace></li>
-        </ul>
-      </TemarioCompleto>
+    <SectionHero
+      title="Atajos de teclado"
+      description="Referencia rápida de atajos para Hyprland, Kitty, Bash y Zsh. Super = tecla Windows."
+    />
+    <TemarioCompleto>
+      <ul class="list-none pl-0 space-y-1.5 text-sm [&_ul]:pl-4 [&_ul]:mt-1.5 [&_ul]:space-y-1">
+        <li><Enlace href="#modificadores-principales">Modificadores principales</Enlace></li>
+        <li><Enlace href="#gestion-de-ventanas">Gestión de ventanas</Enlace></li>
+        <li><Enlace href="#menus-personalizados">Menús personalizados</Enlace></li>
+        <li><Enlace href="#movimiento-entre-ventanas">Movimiento entre ventanas</Enlace></li>
+        <li><Enlace href="#workspaces">Espacios de trabajo (Workspaces)</Enlace></li>
+        <li><Enlace href="#gestos-del-raton">Gestos del ratón</Enlace></li>
+        <li><Enlace href="#kitty">Comandos básicos dentro de Kitty</Enlace></li>
+        <li><Enlace href="#atajos-bash">Atajos básicos (Bash y Zsh)</Enlace></li>
+        <li><Enlace href="#comandos-bash-zsh">Bash y Zsh Comandos</Enlace></li>
+      </ul>
+    </TemarioCompleto>
 
-      <Titulo title="h2" id="modificadores-principales">Modificadores principales</Titulo>
-      <Lista>
+    <section class="content-section" id="modificadores-principales">
+      <Titulo title="h2">Modificadores principales</Titulo>
+      <Lista class="mt-2">
         <li><strong>$mainMod = SUPER</strong> =&gt; tecla Windows / Super</li>
         <li><strong>$secondMod = SUPER_SHIFT</strong> =&gt; Windows + Shift</li>
       </Lista>
-      <Titulo title="h2" id="gestion-de-ventanas">Gestión de ventanas</Titulo>
-      <Tabla>
+    </section>
+
+    <section class="content-section" id="gestion-de-ventanas">
+      <Titulo title="h2">Gestión de ventanas</Titulo>
+      <Tabla class="mt-2">
         <TablaCabezera headers={["Atajo", "Acción"]} />
         <tbody>
           <TablaFila><TablaUnica><strong>Super + Return</strong></TablaUnica><TablaUnica>Abrir terminal (kitty)</TablaUnica></TablaFila>
@@ -64,8 +69,11 @@ import Enlace from "../atomos/Enlace.astro";
           <TablaFila><TablaUnica><strong>Super + Z</strong></TablaUnica><TablaUnica>Abrir flameshot gui</TablaUnica></TablaFila>
         </tbody>
       </Tabla>
-      <Titulo title="h2" id="menus-personalizados">Menús personalizados</Titulo>
-      <Tabla>
+    </section>
+
+    <section class="content-section" id="menus-personalizados">
+      <Titulo title="h2">Menús personalizados</Titulo>
+      <Tabla class="mt-2">
         <TablaCabezera headers={["Atajo", "Acción"]} />
         <tbody>
           <TablaFila><TablaUnica><strong>Super + D</strong></TablaUnica><TablaUnica>Rofi drun (Menú Aplicaciones)</TablaUnica></TablaFila>
@@ -76,16 +84,22 @@ import Enlace from "../atomos/Enlace.astro";
           <TablaFila><TablaUnica><strong>Super + Shift + Return</strong></TablaUnica><TablaUnica>Modo hacker (abrir 3 ventanas kitty organizadas)</TablaUnica></TablaFila>
         </tbody>
       </Tabla>
-      <Titulo title="h2" id="movimiento-entre-ventanas">Movimiento entre ventanas</Titulo>
-      <Tabla>
+    </section>
+
+    <section class="content-section" id="movimiento-entre-ventanas">
+      <Titulo title="h2">Movimiento entre ventanas</Titulo>
+      <Tabla class="mt-2">
         <TablaCabezera headers={["Atajo", "Acción"]} />
         <tbody>
           <TablaFila><TablaUnica><strong>Super + ←/→/↑/↓</strong></TablaUnica><TablaUnica>Mover foco</TablaUnica></TablaFila>
           <TablaFila><TablaUnica><strong>Super + H/L/K/J</strong></TablaUnica><TablaUnica>Mover foco (vim style)</TablaUnica></TablaFila>
         </tbody>
       </Tabla>
-      <Titulo title="h2" id="workspaces">Espacios de trabajo</Titulo>
-      <Tabla>
+    </section>
+
+    <section class="content-section" id="workspaces">
+      <Titulo title="h2">Espacios de trabajo</Titulo>
+      <Tabla class="mt-2">
         <TablaCabezera headers={["Atajo", "Acción"]} />
         <tbody>
           <TablaFila><TablaUnica><strong>Super + 1–0</strong></TablaUnica><TablaUnica>Cambiar workspace</TablaUnica></TablaFila>
@@ -96,16 +110,22 @@ import Enlace from "../atomos/Enlace.astro";
           <TablaFila><TablaUnica><strong>Super + Scroll Down</strong></TablaUnica><TablaUnica>Siguiente workspace</TablaUnica></TablaFila>
         </tbody>
       </Tabla>
-      <Titulo title="h2" id="gestos-del-raton">Gestos del ratón</Titulo>
-      <Tabla>
+    </section>
+
+    <section class="content-section" id="gestos-del-raton">
+      <Titulo title="h2">Gestos del ratón</Titulo>
+      <Tabla class="mt-2">
         <TablaCabezera headers={["Atajos", "Acción"]} />
         <tbody>
           <TablaFila><TablaUnica><strong>Super + click izq</strong></TablaUnica><TablaUnica>Mover ventana</TablaUnica></TablaFila>
           <TablaFila><TablaUnica><strong>Super + click der</strong></TablaUnica><TablaUnica>Redimensionar</TablaUnica></TablaFila>
         </tbody>
       </Tabla>
-      <Titulo title="h2" id="kitty">Comandos básicos dentro de Kitty</Titulo>
-      <Tabla>
+    </section>
+
+    <section class="content-section" id="kitty">
+      <Titulo title="h2">Comandos básicos dentro de Kitty</Titulo>
+      <Tabla class="mt-2">
         <TablaCabezera headers={["Acción", "Atajo", "Descripción"]} />
         <tbody>
           <TablaFila><TablaUnica>Nueva pestaña</TablaUnica><TablaUnica>Ctrl + Shift + t</TablaUnica><TablaUnica>Abrir pestaña</TablaUnica></TablaFila>
@@ -118,8 +138,11 @@ import Enlace from "../atomos/Enlace.astro";
           <TablaFila><TablaUnica>Zoom</TablaUnica><TablaUnica>Ctrl + + / -</TablaUnica><TablaUnica>Aumentar/reducir</TablaUnica></TablaFila>
         </tbody>
       </Tabla>
-      <Titulo title="h2" id="atajos-bash">Atajos básicos (idénticos a Bash)</Titulo>
-      <Tabla>
+    </section>
+
+    <section class="content-section" id="atajos-bash">
+      <Titulo title="h2">Atajos básicos (idénticos a Bash)</Titulo>
+      <Tabla class="mt-2">
         <TablaCabezera headers={["Atajo", "Acción"]} />
         <tbody>
           <TablaFila><TablaUnica>Ctrl + A</TablaUnica><TablaUnica>Inicio línea</TablaUnica></TablaFila>
@@ -129,8 +152,11 @@ import Enlace from "../atomos/Enlace.astro";
           <TablaFila><TablaUnica>Ctrl + W</TablaUnica><TablaUnica>Borrar palabra</TablaUnica></TablaFila>
         </tbody>
       </Tabla>
-      <Titulo title="h2" id="comandos-bash-zsh">Atajos especiales de Zsh (ZLE)</Titulo>
-      <Tabla>
+    </section>
+
+    <section class="content-section" id="comandos-bash-zsh">
+      <Titulo title="h2">Atajos especiales de Zsh (ZLE)</Titulo>
+      <Tabla class="mt-2">
         <TablaCabezera headers={["Atajo", "Acción"]} />
         <tbody>
           <TablaFila><TablaUnica>Ctrl + X, Ctrl + E</TablaUnica><TablaUnica>Editar comando actual</TablaUnica></TablaFila>
@@ -140,6 +166,6 @@ import Enlace from "../atomos/Enlace.astro";
           <TablaFila><TablaUnica>Ctrl + X, *</TablaUnica><TablaUnica>Expandir patrones</TablaUnica></TablaFila>
         </tbody>
       </Tabla>
-    </div>
+    </section>
   </Estructura>
 </div>

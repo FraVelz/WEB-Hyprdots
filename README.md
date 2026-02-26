@@ -1,6 +1,12 @@
 # Web Hyprdots
 
+[English Version](./README.EN.md)
+
+![Captura de pantalla](./public/web-hyprdots.png)
+
 Sitio de documentación para **Hyprdots**: configuraciones y recursos para Arch Linux + Hyprland. Incluye guía general, atajos de teclado, visualización de temas y la variante **Hyprdots Simple**.
+
+> ⚠️ **Advertencia:** La configuración original de Hyprdots ya **no recibe mantenimiento ni actualizaciones**. Esta web se conserva solo como referencia histórica. Revisa siempre la documentación oficial o repositorios más recientes antes de aplicar scripts o copiar configuraciones en sistemas en producción.
 
 ## Stack
 

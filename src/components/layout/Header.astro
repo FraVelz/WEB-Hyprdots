@@ -1,0 +1,125 @@
+---
+const { base, navItems } = Astro.props;
+
+const pathname = Astro.url.pathname;
+
+const isHome =
+  pathname === base ||
+  pathname === base.replace(/\/$/, "") ||
+  pathname.endsWith("index.html");
+
+function isActive(href) {
+  if (href === base) return isHome;
+  return pathname.includes(href.replace(base, "").replace(/\/$/, ""));
+}
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-black/5 bg-slate-50/90 dark:border-white/5 dark:bg-slate-950/90 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[inset_0_1px_0_rgba(0,0,0,0.3)]"
+>
+  <div
+    class="flex items-center justify-between gap-6 max-w-4xl mx-auto px-4 h-16 sm:h-[4.25rem] sm:px-6"
+  >
+    <a
+      href={base}
+      class="flex items-center gap-3 no-underline text-inherit transition-opacity hover:opacity-90"
+    >
+      <span
+        class="flex items-center justify-center w-10 h-10 rounded-[10px] overflow-hidden border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/5 dark:shadow-none"
+      >
+        <img
+          src={`${base}logo-fravelz.jpg`}
+          alt=""
+          class="w-full h-full object-cover"
+          width="40"
+          height="40"
+        />
+      </span>
+      <span class="flex flex-col items-start gap-0.5">
+        <span
+          class="text-[1.05rem] font-semibold tracking-tight text-slate-900 dark:text-slate-100"
+          >Hyprdots</span
+        >
+        <span
+          class="text-[0.7rem] font-medium tracking-wide uppercase text-slate-500 dark:text-slate-400"
+          >por Fravelz</span
+        >
+      </span>
+    </a>
+
+    <nav class="hidden sm:flex items-center gap-1" aria-label="Principal">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "py-2 px-3 rounded-lg text-sm font-medium no-underline transition-colors",
+              "text-slate-500 hover:text-slate-900 hover:bg-black/5",
+              "dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-white/5",
+              isActive(item.href) &&
+                "!text-sky-500 !bg-sky-500/10 dark:!text-sky-400 dark:!bg-sky-400/10",
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-2 shrink-0">
+      <a
+        href="https://github.com/FraVelz"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-lg text-sm font-medium no-underline border-none cursor-pointer bg-transparent text-slate-600 hover:text-sky-500 hover:bg-sky-500/10 dark:text-slate-400 dark:hover:text-sky-400 dark:hover:bg-sky-400/10 transition-colors"
+        aria-label="Ver en GitHub"
+      >
+        <i class="fa-brands fa-github text-[1.1rem]" aria-hidden="true"></i>
+        <span class="hidden sm:inline">GitHub</span>
+      </a>
+      <span class="w-px h-5 bg-black/10 dark:bg-white/10" aria-hidden="true"
+      ></span>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="inline-flex items-center justify-center w-9 h-9 rounded-lg text-sm font-medium border-none cursor-pointer bg-transparent text-slate-600 hover:text-sky-500 hover:bg-sky-500/10 dark:text-slate-400 dark:hover:text-sky-400 dark:hover:bg-sky-400/10 transition-colors"
+        aria-label="Cambiar tema claro/oscuro"
+      >
+        <span
+          class="relative inline-flex items-center justify-center w-[1.05rem] h-[1.05rem]"
+        >
+          <i
+            class="fa-solid fa-moon text-[1.05rem] absolute dark:opacity-0 dark:pointer-events-none"
+            aria-hidden="true"></i>
+          <i
+            class="fa-solid fa-sun text-[1.05rem] absolute opacity-0 pointer-events-none dark:opacity-100 dark:pointer-events-auto"
+            aria-hidden="true"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <nav
+    class="sm:hidden border-t border-black/5 dark:border-white/5 overflow-x-auto touch-pan-x"
+    aria-label="Principal móvil"
+  >
+    <div class="flex gap-1 min-w-max py-2 px-4 pb-2.5">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "shrink-0 py-1.5 px-3 rounded-lg text-sm font-medium no-underline transition-colors",
+              "text-slate-500 bg-black/5 hover:text-slate-900 hover:bg-black/10",
+              "dark:text-slate-400 dark:bg-white/5 dark:hover:text-slate-100 dark:hover:bg-white/10",
+              isActive(item.href) &&
+                "!text-sky-500 !bg-sky-500/10 dark:!text-sky-400 dark:!bg-sky-400/10",
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</header>

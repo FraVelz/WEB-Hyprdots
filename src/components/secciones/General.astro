@@ -1,5 +1,6 @@
 ---
 import Estructura from "../organismos/Estructura.astro";
+import SectionHero from "../organismos/SectionHero.astro";
 import TemarioAsideCompleto from "../organismos/TemarioAsideCompleto.astro";
 import TemarioCompleto from "../organismos/TemarioCompleto.astro";
 import Tabla from "../moleculas/Tabla.astro";
@@ -11,6 +12,7 @@ import Texto from "../atomos/Texto.astro";
 import Enlace from "../atomos/Enlace.astro";
 import Lista from "../moleculas/Lista.astro";
 import Linea from "../atomos/Linea.astro";
+import CalloutCard from "../moleculas/CalloutCard.astro";
 import Codigo from "../moleculas/codigo.jsx";
 
 interface Props {
@@ -51,53 +53,58 @@ chmod +x permisos.sh
   </TemarioAsideCompleto>
 
   <Estructura>
-    <div class="space-y-6">
-      <div class="text-center">
-        <Titulo title="h1">Hyprdots</Titulo>
-        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed mx-auto max-w-xl">
-          Configuraciones y recursos para Arch Linux + Hyprland. Lee con cuidado antes de ejecutar scripts.
-        </p>
-      </div>
-      <TemarioCompleto>
-        <ul class="list-none pl-0 space-y-1.5 text-sm [&_ul]:pl-4 [&_ul]:mt-1.5 [&_ul]:space-y-1">
-          <li><Enlace href="#notas">Notas</Enlace></li>
-          <li><Enlace href="#variantes">Variantes</Enlace></li>
-          <li><Enlace href="#organización-de-archivos-y-carpetas">Organización de archivos</Enlace></li>
-          <li>
-            <Enlace href="#carpeta-config">Carpeta config</Enlace>
-            <ul class="list-disc list-inside ml-6">
-              <li><Enlace href="#bin">bin</Enlace></li>
-              <li><Enlace href="#fastfetch">fastfetch</Enlace></li>
-              <li><Enlace href="#hypr">hypr</Enlace></li>
-              <li><Enlace href="#kitty">kitty</Enlace></li>
-              <li><Enlace href="#nvim">nvim</Enlace></li>
-              <li><Enlace href="#themes">themes</Enlace></li>
-              <li><Enlace href="#waybar">waybar</Enlace></li>
-            </ul>
-          </li>
-          <li><Enlace href="#carpeta-home">Carpeta home</Enlace></li>
-          <li><Enlace href="#carpeta-media">Carpeta media</Enlace></li>
-          <li><Enlace href="#raíz-del-proyecto">Raíz del proyecto</Enlace></li>
-        </ul>
-      </TemarioCompleto>
+    <SectionHero
+      title="Hyprdots"
+      description="Configuraciones y recursos para Arch Linux + Hyprland. Lee con cuidado antes de ejecutar scripts."
+    />
+    <CalloutCard variant="info" class="mt-4">
+      <strong>Estado del proyecto:</strong> la configuración original de Hyprdots ya <strong>no recibe mantenimiento ni actualizaciones</strong> ni esta documentación tampoco. Esta documentación se mantiene como referencia; antes de aplicar cambios en tu sistema, verifica siempre versiones y recomendaciones más recientes en repositorios activos u otras fuentes actualizadas.
+    </CalloutCard>
+    <TemarioCompleto>
+      <ul class="list-none pl-0 space-y-1.5 text-sm [&_ul]:pl-4 [&_ul]:mt-1.5 [&_ul]:space-y-1">
+        <li><Enlace href="#notas">Notas</Enlace></li>
+        <li><Enlace href="#variantes">Variantes</Enlace></li>
+        <li><Enlace href="#organización-de-archivos-y-carpetas">Organización de archivos</Enlace></li>
+        <li>
+          <Enlace href="#carpeta-config">Carpeta config</Enlace>
+          <ul class="list-disc list-inside ml-6">
+            <li><Enlace href="#bin">bin</Enlace></li>
+            <li><Enlace href="#fastfetch">fastfetch</Enlace></li>
+            <li><Enlace href="#hypr">hypr</Enlace></li>
+            <li><Enlace href="#kitty">kitty</Enlace></li>
+            <li><Enlace href="#nvim">nvim</Enlace></li>
+            <li><Enlace href="#themes">themes</Enlace></li>
+            <li><Enlace href="#waybar">waybar</Enlace></li>
+          </ul>
+        </li>
+        <li><Enlace href="#carpeta-home">Carpeta home</Enlace></li>
+        <li><Enlace href="#carpeta-media">Carpeta media</Enlace></li>
+        <li><Enlace href="#raíz-del-proyecto">Raíz del proyecto</Enlace></li>
+      </ul>
+    </TemarioCompleto>
 
-      <Linea />
-      <Titulo title="h2" id="notas">Notas</Titulo>
-      <ul class="space-y-1 text-[15px] text-slate-600 dark:text-slate-400 [&_li]:my-1.5 [&_li]:text-slate-600 dark:[&_li]:text-slate-400">
+    <section class="content-section" id="notas">
+      <Titulo title="h2">Notas</Titulo>
+      <ul class="mt-3 space-y-1.5 text-[15px] text-slate-600 dark:text-slate-400 [&_li]:text-slate-600 dark:[&_li]:text-slate-400">
         <li>Repositorio en construcción.</li>
         <li>Contenido avanzado: requiere conocimientos en Bash y personalización de temas.</li>
         <li>Se recomienda leer la guía completa antes de ejecutar cualquier script.</li>
         <li>El archivo <strong>./actualizar.py</strong> sirve para configurar todo automáticamente para el usuario actual.</li>
       </ul>
+    </section>
 
-      <Titulo title="h2" id="variantes">Variantes</Titulo>
-      <Texto>
+    <section class="content-section" id="variantes">
+      <Titulo title="h2">Variantes</Titulo>
+      <CalloutCard variant="tip" class="mt-3">
         Hay dos variantes: la configuración <strong>completa</strong> (temas, waybar, rofi, etc.) y{" "}
         <Enlace href={simpleUrl}>Hyprdots Simple</Enlace>, una versión más ligera con menos archivos y menor consumo de recursos. Ideal para equipos modestos o si prefieres lo mínimo.
-      </Texto>
+      </CalloutCard>
+    </section>
 
-      <Titulo title="h2" id="organización-de-archivos-y-carpetas">Organización de archivos y carpetas</Titulo>
-      <Tabla>
+    <section class="content-section" id="organización-de-archivos-y-carpetas">
+      <Titulo title="h2">Organización de archivos y carpetas</Titulo>
+      <div class="mt-3">
+        <Tabla>
         <TablaCabezera headers={["Carpeta", "Contenido"]} />
         <tbody>
           <TablaFila>
@@ -118,8 +125,11 @@ chmod +x permisos.sh
           </TablaFila>
         </tbody>
       </Tabla>
-      <Linea />
-      <Titulo title="h2" id="carpeta-config">Carpeta config</Titulo>
+      </div>
+    </section>
+
+    <section class="content-section" id="carpeta-config">
+      <Titulo title="h2">Carpeta config</Titulo>
       <Titulo title="h3" id="bin">bin</Titulo>
       <Lista>
         <li>autostart.sh — Inicializa ventanas al encender</li>
@@ -172,18 +182,27 @@ chmod +x permisos.sh
         <li>style.css — Estilos</li>
         <li>colors.css — Variables de colores</li>
       </Lista>
-      <Linea />
-      <Titulo title="h2" id="carpeta-home">Carpeta home</Titulo>
-      <Texto>Archivos que se copian a ~ para personalización. .zshrc — Configuración de terminal y sintaxis.</Texto>
-      <Linea />
-      <Titulo title="h2" id="carpeta-media">Carpeta media</Titulo>
-      <Texto>Imágenes para documentación. Scripts: permisos.sh, actualizar.sh.</Texto>
-      <Codigo client:load code={codigoMedia} language="bash" />
-      <Titulo title="h2" id="raíz-del-proyecto">Raíz del proyecto</Titulo>
+    </section>
+
+    <section class="content-section" id="carpeta-home">
+      <Titulo title="h2">Carpeta home</Titulo>
+      <Texto class="mt-2">Archivos que se copian a ~ para personalización. .zshrc — Configuración de terminal y sintaxis.</Texto>
+    </section>
+
+    <section class="content-section" id="carpeta-media">
+      <Titulo title="h2">Carpeta media</Titulo>
+      <Texto class="mt-2">Imágenes para documentación. Scripts: permisos.sh, actualizar.sh.</Texto>
+      <div class="mt-4">
+        <Codigo client:load code={codigoMedia} language="bash" />
+      </div>
+    </section>
+
+    <section class="content-section" id="raíz-del-proyecto">
+      <Titulo title="h2">Raíz del proyecto</Titulo>
       <Lista>
         <li>readme.md — Documentación principal</li>
         <li>style-formatter.css — Colores para VS Code</li>
       </Lista>
-    </div>
+    </section>
   </Estructura>
 </div>

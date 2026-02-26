@@ -1,5 +1,6 @@
 ---
 import Estructura from "../organismos/Estructura.astro";
+import SectionHero from "../organismos/SectionHero.astro";
 import TemarioAsideCompleto from "../organismos/TemarioAsideCompleto.astro";
 import TemarioCompleto from "../organismos/TemarioCompleto.astro";
 import Tabla from "../moleculas/Tabla.astro";
@@ -9,9 +10,8 @@ import TablaUnica from "../moleculas/TablaUnica.astro";
 import Titulo from "../moleculas/Titulo.astro";
 import Texto from "../atomos/Texto.astro";
 import Enlace from "../atomos/Enlace.astro";
-import Lista from "../moleculas/Lista.astro";
-import Linea from "../atomos/Linea.astro";
 import Imagen from "../atomos/Imagen.astro";
+import CalloutCard from "../moleculas/CalloutCard.astro";
 import Codigo from "../moleculas/codigo.jsx";
 
 interface Props {
@@ -45,35 +45,32 @@ chmod +x ~/.config/hyprdots/bin/selector-app.sh`;
   </TemarioAsideCompleto>
 
   <Estructura>
-    <div class="space-y-6">
-      <div>
-        <Titulo title="h1">Hyprdots Simple</Titulo>
-        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed max-w-2xl mt-2">
-          Variante ligera de Hyprdots: misma base (Hyprland, waybar, kitty) con menos archivos, sin temas múltiples ni scripts extra. Menor consumo de recursos e instalación más rápida.
-        </p>
-      </div>
+    <SectionHero
+      title="Hyprdots Simple"
+      description="Variante ligera: misma base (Hyprland, waybar, kitty) con menos archivos, sin temas múltiples ni scripts extra. Menor consumo e instalación más rápida."
+    />
+    <TemarioCompleto>
+      <ul class="list-none pl-0 space-y-1.5 text-sm [&_ul]:pl-4 [&_ul]:mt-1.5 [&_ul]:space-y-1">
+        <li><Enlace href="#que-es">Qué es Hyprdots Simple</Enlace></li>
+        <li><Enlace href="#estructura">Estructura de archivos</Enlace></li>
+        <li><Enlace href="#atajos">Atajos</Enlace></li>
+        <li><Enlace href="#visualizacion">Visualización</Enlace></li>
+        <li><Enlace href="#instalacion">Instalación</Enlace></li>
+      </ul>
+    </TemarioCompleto>
 
-      <TemarioCompleto>
-        <ul class="list-none pl-0 space-y-1.5 text-sm [&_ul]:pl-4 [&_ul]:mt-1.5 [&_ul]:space-y-1">
-          <li><Enlace href="#que-es">Qué es Hyprdots Simple</Enlace></li>
-          <li><Enlace href="#estructura">Estructura de archivos</Enlace></li>
-          <li><Enlace href="#atajos">Atajos</Enlace></li>
-          <li><Enlace href="#visualizacion">Visualización</Enlace></li>
-          <li><Enlace href="#instalacion">Instalación</Enlace></li>
-        </ul>
-      </TemarioCompleto>
-
-      <Linea />
-
-      <Titulo title="h2" id="que-es">Qué es Hyprdots Simple</Titulo>
+    <section class="content-section" id="que-es">
+      <Titulo title="h2">Qué es Hyprdots Simple</Titulo>
       <Texto>
         Es la misma configuración de Hyprland que el resto del repo, pero reducida: un solo tema, waybar básico, hypr + kitty + nvim mínimos. No incluye carpetas <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">themes</code> con varios temas, ni scripts como <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">theme-switcher.sh</code> o <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">mode-hacker.sh</code>. Ideal para equipos con pocos recursos o si prefieres mantener solo lo esencial.
       </Texto>
       <Texto>
         Los atajos de teclado son los mismos que en la configuración completa; puedes consultarlos en la sección <Enlace href={`${baseUrl}/atajos/`}>Atajos</Enlace>.
       </Texto>
+    </section>
 
-      <Titulo title="h2" id="estructura">Estructura de archivos</Titulo>
+    <section class="content-section" id="estructura">
+      <Titulo title="h2">Estructura de archivos</Titulo>
       <Texto>
         En la variante simple solo se usan estas carpetas y archivos (el resto del repo se ignora o no se copia).
       </Texto>
@@ -111,8 +108,10 @@ chmod +x ~/.config/hyprdots/bin/selector-app.sh`;
       <Texto>
         No se usan: <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">themes/</code>, <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">fastfetch</code> (opcional), <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">mode-hacker.sh</code>, <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">theme-switcher.sh</code>, ni la mayoría de scripts de <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">bin</code>.
       </Texto>
+    </section>
 
-      <Titulo title="h2" id="atajos">Atajos</Titulo>
+    <section class="content-section" id="atajos">
+      <Titulo title="h2">Atajos</Titulo>
       <Texto>
         Los atajos son los mismos que en la configuración completa. Resumen de los más usados:
       </Texto>
@@ -129,16 +128,19 @@ chmod +x ~/.config/hyprdots/bin/selector-app.sh`;
       <Texto>
         Lista completa en <Enlace href={`${baseUrl}/atajos/`}>Atajos de teclado</Enlace>.
       </Texto>
+    </section>
 
-      <Titulo title="h2" id="visualizacion">Visualización</Titulo>
+    <section class="content-section" id="visualizacion">
+      <Titulo title="h2">Visualización</Titulo>
       <Texto>
         Aspecto típico de la variante simple: barra waybar mínima, terminal kitty y nvim básico. Las capturas corresponden a la misma estética que en la configuración completa pero con menos módulos y un solo tema.
       </Texto>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+      <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Imagen src={img("imagenes/terminal.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Terminal Simple" />
         <Imagen src={img("imagenes/nvim.png")} width="100%" class="rounded-lg border border-slate-200 dark:border-slate-700/60" alt="Nvim Simple" />
       </div>
-      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
+      <div class="mt-6 space-y-6">
+      <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden">
         <Titulo title="h3" id="simple-terminal" class="px-6 pt-4 pb-2">Terminal (kitty / zsh)</Titulo>
         <div class="px-6 pb-6">
           <Imagen src={img("imagenes/terminal.png")} width="100%" class="rounded-lg" />
@@ -153,18 +155,23 @@ chmod +x ~/.config/hyprdots/bin/selector-app.sh`;
       <section class="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-slate-50 dark:bg-slate-900/30 overflow-hidden my-6">
         <Titulo title="h3" id="simple-apagar" class="px-6 pt-4 pb-2">Menú apagado (rofi)</Titulo>
         <div class="px-6 pb-6">
-          <Imagen src={img("imagenes/selector-apagar.png")} width="100%" class="rounded-lg" />
+          <Imagen src={img("imagenes/selector-apagar.png")} width="100%" class="rounded-lg" alt="Menú apagado" />
         </div>
       </section>
+      </div>
+    </section>
 
-      <Titulo title="h2" id="instalacion">Instalación</Titulo>
-      <Texto>
+    <section class="content-section" id="instalacion">
+      <Titulo title="h2">Instalación</Titulo>
+      <Texto class="mt-2">
         Si en el repositorio hay un script o rama específica para la variante simple, úsala según el readme. Si no, copia manualmente solo las carpetas y archivos listados en <Enlace href="#estructura">Estructura de archivos</Enlace> a tu <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">~/.config</code> y <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">~</code>, y ajusta permisos de los scripts en <code class="text-sky-700 dark:text-sky-200/90 bg-sky-50 dark:bg-transparent px-1 rounded">bin</code>.
       </Texto>
-      <Codigo client:load code={codigoInstalacion} language="bash" />
-      <Texto>
+      <div class="mt-4">
+        <Codigo client:load code={codigoInstalacion} language="bash" />
+      </div>
+      <CalloutCard variant="info" class="mt-4">
         Para la configuración completa (varios temas, todos los scripts), sigue la guía de la sección <Enlace href={baseUrl ? baseUrl + "/" : "/"}>General</Enlace> y el readme del repositorio.
-      </Texto>
-    </div>
+      </CalloutCard>
+    </section>
   </Estructura>
 </div>

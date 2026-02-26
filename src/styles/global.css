@@ -28,3 +28,11 @@
     @apply border-t border-slate-200 dark:border-white/10;
   }
 }
+
+/* Bloques de contenido por sección (título + contenido) */
+.content-section {
+  @apply pt-2;
+}
+.content-section + .content-section {
+  @apply mt-10 pt-6 border-t border-slate-200/80 dark:border-slate-700/60;
+}
