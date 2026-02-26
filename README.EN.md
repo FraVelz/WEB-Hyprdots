@@ -19,7 +19,6 @@ Documentation site for **Hyprdots**: configurations and resources for Arch Linux
 
 (Approximation)
 
-
 ``` text
 src/
 ├── components/
@@ -40,19 +39,13 @@ src/
 
 ## Commands
 
-| Command | Description |
-
-| -------------- | ---------------------- |
-
-`pnpm install` | Install dependencies |
-
-`pnpm dev` | Development server |
-
-`pnpm build` | Build static site |
-
-`pnpm preview` | Preview build |
-
-`pnpm lint` | Run ESLint |
+| Command        | Description          |
+| -------------- | -------------------- |
+| `pnpm install` | Install dependencies |
+| `pnpm dev`     | Development server   |
+| `pnpm build`   | Build static site    |
+| `pnpm preview` | Preview build        |
+| `pnpm lint`    | Run ESLint           |
 
 ## Deployment
 
